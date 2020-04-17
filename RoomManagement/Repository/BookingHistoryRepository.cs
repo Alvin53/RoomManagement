@@ -38,6 +38,12 @@ namespace RoomManagement.Repository
             return BookingHistory;
         }
 
+        public bool isExists(int Id)
+        {
+            var exists = _db.BookingHistories.Any(q => q.Id == Id);
+            return exists;
+        }
+
         public bool Save()
         {
             var changes = _db.SaveChanges();

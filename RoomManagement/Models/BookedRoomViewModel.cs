@@ -19,7 +19,7 @@ namespace RoomManagement.Models
         public EmployeeViewModel Employee { get; set; }
         public string EmployeeId { get; set; }
        
-        public DetailsRoomTypeViewModel RoomType { get; set; }
+        public RoomTypeViewModel RoomType { get; set; }
         public int RoomTypeId { get; set; }
     }
 }

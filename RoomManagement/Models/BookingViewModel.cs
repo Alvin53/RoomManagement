@@ -19,7 +19,7 @@ namespace RoomManagement.Models
             public int BookingNumber { get; set; }
             public EmployeeViewModel Employee { get; set; }
             public string EmployeeId { get; set; }
-            public DetailsRoomTypeViewModel RoomType { get; set; }
+            public RoomTypeViewModel RoomType { get; set; }
             public int RoomTypeId { get; set; }
             
             public IEnumerable<SelectListItem> Employees { get; set; } // Creates drop down list for employees and room types

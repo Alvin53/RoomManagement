@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using RoomManagement.Models;
 
 namespace RoomManagement.Data
 {
@@ -17,6 +18,7 @@ namespace RoomManagement.Data
         public DbSet<BookingHistory> BookingHistories { get; set; }
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<RoomType> RoomTypes { get; set; }
+        public DbSet<RoomManagement.Models.RoomTypeViewModel> DetailsRoomTypeViewModel { get; set; }
 
     }
 }

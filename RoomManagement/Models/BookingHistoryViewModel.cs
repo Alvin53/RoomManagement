@@ -20,7 +20,7 @@ namespace RoomManagement.Models
         [Required]
         public DateTime BookingDate { get; set; }
 
-        public DetailsRoomTypeViewModel RoomType { get; set; }
+        public RoomTypeViewModel RoomType { get; set; }
         public int RoomTypeId { get; set; }
         public IEnumerable<SelectListItem> RoomTypes { get; set; } // Drop down list for room types
         public bool? BookingApproved { get; set; }

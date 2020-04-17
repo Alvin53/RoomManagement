@@ -38,6 +38,12 @@ namespace RoomManagement.Repository
             return bookedroom;
         }
 
+        public bool isExists(int Id)
+        {
+            var exists = _db.BookedRooms.Any(q => q.BookingId == Id);
+            return exists;
+        }
+
         public bool Save()
         {
             var changes = _db.SaveChanges();

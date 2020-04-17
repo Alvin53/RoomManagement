@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Inex Hotel</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
@@ -23,15 +26,27 @@
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Book Room</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="RoomType" asp-action="Index">Rooms</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="" asp-action="">Rooms</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="" asp-action="">Gallery</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
 
+                        <li class="nav-item dropdown">
+                            <div class="dropdown">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> BOOK NOW </a>
+
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item"  asp-controller="RoomType" asp-action="Index">Add Room </a>
+                                    <a class="dropdown-item" href="#">Booking</a>
+                                    <a class="dropdown-item" href="#">Booking History</a>
+                                    <a class="dropdown-item" asp-controller="RoomType" asp-action="Index">Room Details</a>
+                                </div>
+                            </div>
+                        </li>
                         <li class="nav-item dropdown">
                             <div class="dropdown">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -42,19 +57,24 @@
                                     <a class="dropdown-item" href="#">Gallery</a>
                                     <a class="dropdown-item" href="#">FAQ</a>
                                     <a class="dropdown-item" href="#">Contact & Information</a>
-                                </div>
-                        </li>
 
+                                </div>
+                            </div>
+                        </li>
+                        </ul>
                 </div>
-                </ul>
+                
             </div>
-            </div>
+            
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
+
         </main>
+
     </div>
 
     <footer class="border-top footer text-muted">
@@ -64,7 +84,9 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

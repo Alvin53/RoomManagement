@@ -45,6 +45,12 @@ namespace RoomManagement.Repository
             throw new NotImplementedException();
         }
 
+        public bool isExists(int Id)
+        {
+            var exists = _db.RoomTypes.Any(q => q.RoomTypeId ==Id);
+            return exists;
+        }
+
         public bool Save()
         {
             var changes = _db.SaveChanges();
