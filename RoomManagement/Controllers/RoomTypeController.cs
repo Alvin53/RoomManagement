@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RoomManagement.Contracts;
@@ -11,6 +12,7 @@ using RoomManagement.Models;
 
 namespace RoomManagement.Controllers
 {
+   
     public class RoomTypeController : Controller
     {
         private readonly IRoomTypeRepository _repo;
@@ -21,6 +23,8 @@ namespace RoomManagement.Controllers
             _repo = repo;
             _mapper = mapper;
         }
+
+        
         // GET: RoomType
         public ActionResult Index()
         {
@@ -113,7 +117,7 @@ namespace RoomManagement.Controllers
                 return View(model);
             }
         }
-
+        [Authorize(Roles ="Administrator")]
         // GET: RoomType/Delete/5
         public ActionResult Delete(int id)
         {
