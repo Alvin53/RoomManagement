@@ -41,7 +41,7 @@ namespace RoomManagement
             services.AddScoped<IBookedRoomRepository, BookedRoomRepository>();
             services.AddAutoMapper(typeof(Maps));//Adding Auto AutoMapper Config File
 
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddDefaultIdentity<Employee>()
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
@@ -54,7 +54,7 @@ namespace RoomManagement
 
             IApplicationBuilder app, 
             IWebHostEnvironment env,
-            UserManager<IdentityUser> userManager,
+            UserManager<Employee> userManager,
             RoleManager<IdentityRole> roleManager
             )
         {

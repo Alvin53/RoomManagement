@@ -1,14 +1,15 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using RoomManagement.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace RoomManagement
-{
+{//IF THERE IS A ERROR WITH IDENTITY USER CHANGE IT TO EMPLOYEE OR VISE VERSA
     public static class SeedData
     {
-        public static void Seed(UserManager<IdentityUser> userManager,
+        public static void Seed(UserManager<Employee> userManager,
             RoleManager<IdentityRole> roleManager)
         {
             SeedRoles(roleManager);
@@ -16,14 +17,14 @@ namespace RoomManagement
 
         }
 
-        private static void SeedUsers(UserManager<IdentityUser> userManager)
+        private static void SeedUsers(UserManager<Employee> userManager)
         {
-            if (userManager.FindByNameAsync("admin").Result == null)
+            if (userManager.FindByNameAsync("admin@localhost.com").Result == null)
             {
-                var user = new IdentityUser
+                var user = new Employee
                 {
-                    UserName = "admin",
-                    Email = "admin@localhost"
+                    UserName = "admin@localhost.com",
+                    Email = "admin@localhost.com",
                 };
 
                 var result = userManager.CreateAsync(user, "P@ssword1").Result;

@@ -19,6 +19,9 @@ namespace RoomManagement.Data
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<RoomType> RoomTypes { get; set; }
         public DbSet<RoomManagement.Models.RoomTypeViewModel> DetailsRoomTypeViewModel { get; set; }
+        public DbSet<RoomManagement.Models.EmployeeViewModel> EmployeeViewModel { get; set; }
+        public DbSet<RoomManagement.Models.BookingViewModel> BookingViewModel { get; set; }
+        public DbSet<RoomManagement.Models.EditBookingViewModel> EditBookingViewModel { get; set; }
 
     }
 }

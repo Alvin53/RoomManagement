@@ -14,6 +14,8 @@ namespace RoomManagement.Data
         public string RoomName { get; set; }
         public int RoomPrice { get; set; }
         public int RoomNumber { get; set; }
+        public int DefaultDays { get; set; }
+        public DateTime DateCreated { get; set; }
        
     }
 }

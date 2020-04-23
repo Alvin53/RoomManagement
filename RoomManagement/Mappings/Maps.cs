@@ -15,6 +15,7 @@ namespace RoomManagement.Mappings
             CreateMap<RoomType, RoomTypeViewModel>().ReverseMap(); 
             CreateMap<Employee, EmployeeViewModel>().ReverseMap(); 
             CreateMap<Booking, BookingViewModel>().ReverseMap(); 
+            CreateMap<Booking, EditBookingViewModel>().ReverseMap(); 
             CreateMap<BookingHistory, BookingHistoryViewModel>().ReverseMap(); 
             CreateMap<BookedRoom, BookedRoomViewModel>().ReverseMap(); 
 

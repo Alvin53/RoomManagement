@@ -1,4 +1,5 @@
-﻿using RoomManagement.Contracts;
+﻿using Microsoft.EntityFrameworkCore;
+using RoomManagement.Contracts;
 using RoomManagement.Data;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,15 @@ namespace RoomManagement.Repository
         {
             _db = db;
         }
+
+        public bool CheckAllocation(int roomtypeid, string employeeid)
+        {
+            var period = DateTime.Now.Year;
+            return FindAll().Where(q => q.EmployeeId == employeeid && q.RoomTypeId == roomtypeid && q.Period == period).Any();
+        
+          
+         }
+
         public bool Create(Booking entity)
         {
             _db.Bookings.Add(entity);
@@ -28,14 +38,29 @@ namespace RoomManagement.Repository
 
         public ICollection<Booking> FindAll()
         {
-            var bookings = _db.Bookings.ToList();
+            var bookings = _db.Bookings
+                .Include(q => q.RoomType)
+                .Include(q => q.Employee)
+                .ToList();
             return bookings;
         }
 
         public Booking FindById(int id)
         {//ID MAY NEED TO BE CHANGE VARIABLE AND IN DB CONTEXT
-            var bookings = _db.Bookings.Find(id);
+            var bookings = _db.Bookings
+                .Include(q => q.RoomType)
+                .Include(q => q.Employee)
+                .FirstOrDefault(q => q.BookingId == id);//Id might be wrong
+                
             return bookings;
+        }
+
+        public ICollection<Booking> GetBookingsByEmployee(string id)
+        {
+            var period = DateTime.Now.Year;
+            return FindAll()
+                .Where(q => q.EmployeeId == id && q.Period == period)
+                .ToList();
         }
 
         public bool isExists(int Id)
