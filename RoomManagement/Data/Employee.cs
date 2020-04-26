@@ -8,7 +8,7 @@ namespace RoomManagement.Data
 {
     public class Employee : IdentityUser
     {//IF THERE IS AN ERROR WITH AUTOMAPPING THEN CHANGE EMPLOYEEID VARIABLE TO TYPE STRING
-        public int EmployeeId { get; set; }
+        
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Password { get; set; }

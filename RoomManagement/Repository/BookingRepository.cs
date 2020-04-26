@@ -55,12 +55,20 @@ namespace RoomManagement.Repository
             return bookings;
         }
 
-        public ICollection<Booking> GetBookingsByEmployee(string id)
+        public ICollection<Booking> GetBookingsByEmployee(string employeeid)
         {
             var period = DateTime.Now.Year;
             return FindAll()
-                .Where(q => q.EmployeeId == id && q.Period == period)
+                .Where(q => q.EmployeeId == employeeid && q.Period == period)
                 .ToList();
+        }
+
+        public Booking GetBookingsByEmployeeAndType(string employeeid, int roomtypeid)
+        {
+            var period = DateTime.Now.Year;
+            return FindAll()
+                .FirstOrDefault(q => q.EmployeeId == employeeid && q.Period == period && q.RoomTypeId == roomtypeid);
+                
         }
 
         public bool isExists(int Id)

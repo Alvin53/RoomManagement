@@ -37,7 +37,7 @@ namespace RoomManagement
             //ADDING REFERENCES FOR REPOSITORY AND CONTRACTS TO STARTUP FILE
             services.AddScoped<IRoomTypeRepository, RoomTypeRepository>();
             services.AddScoped<IBookingRepository, BookingRepository>();
-            services.AddScoped<IBookingHistoryRepository, BookingHistoryRepository>();
+            services.AddScoped<IBookingRequestRepository, BookingRequestRepository>();
             services.AddScoped<IBookedRoomRepository, BookedRoomRepository>();
             services.AddAutoMapper(typeof(Maps));//Adding Auto AutoMapper Config File
 

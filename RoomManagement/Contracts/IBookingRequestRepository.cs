@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace RoomManagement.Contracts
 {
-   public interface IBookingHistoryRepository : IRepositoryBase <BookingHistory>
+   public interface IBookingRequestRepository : IRepositoryBase <BookingRequest>
     {
+        ICollection<BookingRequest> GetBookingRequestsByEmployee(string employeeid);
     }
 }

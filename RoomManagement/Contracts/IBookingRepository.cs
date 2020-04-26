@@ -9,6 +9,7 @@ namespace RoomManagement.Contracts
     public interface IBookingRepository :IRepositoryBase < Booking >
     {
         bool CheckAllocation(int roomtypeid, string employeeid);
-        ICollection<Booking> GetBookingsByEmployee(string id);
+        ICollection<Booking> GetBookingsByEmployee(string employeeid);
+        Booking GetBookingsByEmployeeAndType(string employeeid, int roomtypeid);
     }
 }
